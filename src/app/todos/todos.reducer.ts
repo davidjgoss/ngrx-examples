@@ -8,7 +8,9 @@ const _todosReducer = createReducer(initialState,
   on(add, (state, action) => {
     return {...state, items: [...state.items, action]};
   }),
-  on(remove, (state, action) => state),
+  on(remove, (state, action) => {
+    return {...state, items: state.items.filter((item, i) => i !== action.index)};
+  }),
   on(updateTitle, (state, action) => {
     return {...state, title: action.title};
   }),

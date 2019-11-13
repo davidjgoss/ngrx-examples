@@ -4,7 +4,7 @@ import {TodoListComponent} from './todo-list/todo-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {todosReducer} from './todos.reducer';
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule} from '@angular/material';
 
 @NgModule({
   declarations: [TodoListComponent],
@@ -19,6 +19,7 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule} from
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     MatListModule
   ]
 })

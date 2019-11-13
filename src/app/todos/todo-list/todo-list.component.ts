@@ -4,7 +4,7 @@ import {Todos} from '../todos';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {map} from 'rxjs/operators';
-import { updateTitle, add } from '../todos.actions';
+import {updateTitle, add, remove} from '../todos.actions';
 import {State} from '../../state';
 
 @Component({
@@ -34,8 +34,13 @@ export class TodoListComponent implements OnInit {
     this.addForm.reset();
   }
 
+  remove(index: number) {
+    this.store.dispatch(remove({index}));
+  }
+
   updateTitle(value: string) {
     this.store.dispatch(updateTitle({title: value}));
   }
+
 
 }
