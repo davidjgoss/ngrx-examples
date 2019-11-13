@@ -1,9 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import {AppComponent} from './app.component';
+import {StoreModule} from '@ngrx/store';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TodosModule} from './todos/todos.module';
 
 @NgModule({
   declarations: [
@@ -11,15 +13,14 @@ import { reducers, metaReducers } from './reducers';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
-    })
+    FormsModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({}),
+    BrowserAnimationsModule,
+    TodosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

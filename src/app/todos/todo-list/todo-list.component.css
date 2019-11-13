@@ -1,0 +1,15 @@
+.todos-title-edit {
+  font-size: inherit;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  width: auto;
+}
+
+.todos-list .mat-list-item {
+  background-color: white;
+}
+
+.todos-list .mat-list-item:not(:last-child) {
+  margin-bottom: 1px;
+}
