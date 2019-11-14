@@ -6,10 +6,16 @@
   width: auto;
 }
 
-.todos-list .mat-list-item {
+.todos-list__item {
   background-color: white;
 }
 
-.todos-list .mat-list-item:not(:last-child) {
+.todos-list__item :not(:last-child) {
   margin-bottom: 1px;
 }
+
+.todos-list__item--done {
+  opacity: 0.666;
+}
+
+

@@ -6,6 +6,11 @@ export const add = createAction(
   props<Item>()
 );
 
+export const markDone = createAction(
+  '[Todo List] Mark Done',
+  props<{ index: number }>()
+);
+
 export const remove = createAction(
   '[Todo List] Remove',
   props<{ index: number }>()

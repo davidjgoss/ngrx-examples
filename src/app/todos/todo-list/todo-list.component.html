@@ -12,7 +12,12 @@
 </form>
 
 <mat-list class="todos-list">
-  <mat-list-item *ngFor="let item of list() | async; index as i">
+  <mat-list-item *ngFor="let item of listPending() | async; index as i" class="todos-list__item">
+    {{item.name}}
+    <button mat-icon-button (click)="markDone(i)"><mat-icon>check</mat-icon></button>
+    <button mat-icon-button (click)="remove(i)"><mat-icon>delete</mat-icon></button>
+  </mat-list-item>
+  <mat-list-item *ngFor="let item of listDone() | async; index as i" class="todos-list__item todos-list__item--done">
     {{item.name}}
     <button mat-icon-button (click)="remove(i)"><mat-icon>delete</mat-icon></button>
   </mat-list-item>

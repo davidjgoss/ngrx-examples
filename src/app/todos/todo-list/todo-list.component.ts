@@ -4,7 +4,7 @@ import {Todos} from '../todos';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {map} from 'rxjs/operators';
-import {updateTitle, add, remove} from '../todos.actions';
+import {updateTitle, add, remove, markDone} from '../todos.actions';
 import {State} from '../../state';
 
 @Component({
@@ -25,13 +25,21 @@ export class TodoListComponent implements OnInit {
     this.todos$ = this.store.pipe(select('todos'));
   }
 
-  list() {
-    return this.todos$.pipe(map(todos => todos.items));
+  listPending() {
+    return this.todos$.pipe(map(todos => todos.items.filter(item => !item.done)));
+  }
+
+  listDone() {
+    return this.todos$.pipe(map(todos => todos.items.filter(item => item.done)));
   }
 
   add() {
     this.store.dispatch(add({name: this.addForm.get('name').value, done: false}));
     this.addForm.reset();
+  }
+
+  markDone(index: number) {
+    this.store.dispatch(markDone({index}));
   }
 
   remove(index: number) {
@@ -41,6 +49,5 @@ export class TodoListComponent implements OnInit {
   updateTitle(value: string) {
     this.store.dispatch(updateTitle({title: value}));
   }
-
 
 }
