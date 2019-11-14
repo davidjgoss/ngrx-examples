@@ -2,6 +2,8 @@ import {createReducer, on} from '@ngrx/store';
 import {Todos} from './todos';
 import {add, markDone, remove, updateTitle} from './todos.actions';
 
+export const featureName = 'todos';
+
 export const initialState: Todos = {items: []};
 
 const _todosReducer = createReducer(initialState,

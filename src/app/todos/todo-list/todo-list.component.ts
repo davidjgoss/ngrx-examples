@@ -6,6 +6,7 @@ import {select, Store} from '@ngrx/store';
 import {map} from 'rxjs/operators';
 import {updateTitle, add, remove, markDone} from '../todos.actions';
 import {State} from '../../state';
+import {featureName} from '../todos.reducer';
 
 @Component({
   selector: 'app-todo-list',
@@ -22,7 +23,7 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todos$ = this.store.pipe(select('todos'));
+    this.todos$ = this.store.pipe(select(featureName));
   }
 
   listPending() {

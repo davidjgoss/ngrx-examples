@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TodoListComponent} from './todo-list/todo-list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
-import {todosReducer} from './todos.reducer';
+import {featureName, todosReducer} from './todos.reducer';
 import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule} from '@angular/material';
 
 @NgModule({
@@ -15,7 +15,7 @@ import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatL
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('todos', todosReducer),
+    StoreModule.forFeature(featureName, todosReducer),
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
