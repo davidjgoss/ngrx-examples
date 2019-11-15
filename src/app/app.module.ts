@@ -5,7 +5,8 @@ import {AppComponent} from './app.component';
 import {StoreModule} from '@ngrx/store';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TodosModule} from './todos/todos.module';
+import {AppRoutingModule} from './app-routing.module';
+import {MatButtonModule, MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import {TodosModule} from './todos/todos.module';
     ReactiveFormsModule,
     StoreModule.forRoot({}),
     BrowserAnimationsModule,
-    TodosModule
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
