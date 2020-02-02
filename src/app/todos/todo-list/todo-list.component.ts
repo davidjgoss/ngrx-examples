@@ -4,7 +4,7 @@ import {Todos} from '../todos';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {map} from 'rxjs/operators';
-import {updateTitle, add, remove, markDone} from '../todos.actions';
+import {add, markDone, remove, updateTitle} from '../todos.actions';
 import {State} from '../../state';
 import {featureName} from '../todos.reducer';
 

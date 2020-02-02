@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {MatButtonModule, MatToolbarModule} from '@angular/material';
+import {EffectsModule} from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {MatButtonModule, MatToolbarModule} from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,
