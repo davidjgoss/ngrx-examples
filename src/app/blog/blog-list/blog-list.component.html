@@ -1,5 +1,6 @@
-<ul>
-  <li *ngFor="let post of posts$ | async">
-    {{post.title}}
-  </li>
-</ul>
+<mat-nav-list class="blog-list">
+  <mat-list-item *ngFor="let post of posts$ | async" (click)="edit(post)">
+    <h3 matLine>{{post.title}}</h3>
+    <p matLine>{{post.summary}}</p>
+  </mat-list-item>
+</mat-nav-list>

@@ -1,6 +1,6 @@
 import {Blog} from './blog';
 import {createReducer, on} from '@ngrx/store';
-import {postsLoaded} from './blog.actions';
+import {newPost, postCancelled, postLoaded, postSaved, postsLoaded, savePost} from './blog.actions';
 
 export const featureName = 'blog';
 
@@ -9,6 +9,15 @@ export const initialState: Blog = {};
 const _blogReducer = createReducer(initialState,
   on(postsLoaded, (state, action) => {
     return {...state, posts: action.posts};
+  }),
+  on(newPost, (state) => {
+    return {...state, editing: {}};
+  }),
+  on(postSaved, postCancelled, (state) => {
+    return {...state, editing: null};
+  }),
+  on(postLoaded, (state, action) => {
+    return {...state, editing: action.post};
   })
 );
 

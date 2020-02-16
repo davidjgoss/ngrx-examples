@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {BlogPostSummary} from '../blog';
 import {featureName} from '../blog.reducer';
 import {map} from 'rxjs/operators';
+import {editPost, loadPosts} from '../blog.actions';
 
 @Component({
   selector: 'app-blog-list',
@@ -18,7 +19,10 @@ export class BlogListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch({type: '[Blog] Load Posts'});
+    this.store.dispatch(loadPosts());
   }
 
+  edit(post: BlogPostSummary) {
+    this.store.dispatch(editPost({id: post.id}));
+  }
 }

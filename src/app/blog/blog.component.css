@@ -1,0 +1,15 @@
+.blog-layout {
+  display: table;
+  width: 100%;
+}
+
+.blog-layout__left {
+  display: table-cell;
+  width: 35%;
+}
+
+.blog-layout__right {
+  display: table-cell;
+  width: 60%;
+  padding-left: 5%;
+}

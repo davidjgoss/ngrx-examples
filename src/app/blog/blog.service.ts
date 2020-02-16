@@ -36,4 +36,30 @@ export class BlogService {
       subscriber.complete();
     });
   }
+
+  load({id}: {id: string}): Observable<Post> {
+    return new Observable(subscriber => {
+      const found = this.data.find(item => item.id === id);
+      subscriber.next(found);
+      subscriber.complete();
+    });
+  }
+
+  save(post: Post): Observable<void> {
+    return new Observable(subscriber => {
+      if (post.id) {
+        const found = this.data.find(item => item.id === post.id);
+        this.data.splice(this.data.indexOf(found), 1, {
+          ...post
+        });
+      } else {
+        this.data.push({
+          ...post,
+          id: uuid()
+        });
+      }
+      subscriber.next();
+      subscriber.complete();
+    });
+  }
 }
