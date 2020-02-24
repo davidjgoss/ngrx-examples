@@ -1,6 +1,6 @@
 import {Blog} from './blog';
 import {createReducer, on} from '@ngrx/store';
-import {newPost, postCancelled, postLoaded, postSaved, postsLoaded, savePost} from './blog.actions';
+import {newPost, postCancelled, postLoaded, postSaved, postsLoaded} from './blog.actions';
 
 export const featureName = 'blog';
 

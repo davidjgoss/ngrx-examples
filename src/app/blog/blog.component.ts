@@ -1,6 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {State} from '../state';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-blog',

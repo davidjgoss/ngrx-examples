@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {State} from '../../state';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {BlogPostSummary, Post} from '../blog';
+import {Post} from '../blog';
 import {featureName} from '../blog.reducer';
 import {filter, map} from 'rxjs/operators';
 import {newPost, postCancelled, savePost} from '../blog.actions';
