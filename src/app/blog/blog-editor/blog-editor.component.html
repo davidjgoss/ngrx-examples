@@ -1,4 +1,4 @@
-<div *ngIf="(editing$ | async)">
+<div *ngIf="(editing$ | async) as editing">
   <form [formGroup]="form" class="editor-form">
     <mat-form-field>
       <mat-label>Title</mat-label>
@@ -10,9 +10,10 @@
       <textarea matInput formControlName="content"></textarea>
     </mat-form-field>
 
-    <footer>
+    <footer style="display: flex;">
       <button (click)="save()" mat-flat-button color="primary">Save</button>
       <button (click)="cancel()" mat-stroked-button color="warn">Cancel</button>
+      <button style="margin-left: auto;" *ngIf="editing.id as id" (click)="delete(id)" mat-flat-button color="warn">Delete</button>
     </footer>
   </form>
 </div>

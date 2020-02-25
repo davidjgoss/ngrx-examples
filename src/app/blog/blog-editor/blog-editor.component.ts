@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 import {Post} from '../blog';
 import {featureName} from '../blog.reducer';
 import {filter, map} from 'rxjs/operators';
-import {newPost, postCancelled, savePost} from '../blog.actions';
+import {newPost, postCancelled, savePost, deletePost} from '../blog.actions';
 
 @Component({
   selector: 'app-blog-editor',
@@ -33,11 +33,15 @@ export class BlogEditorComponent implements OnInit {
   }
 
   save() {
-    this.store.dispatch(savePost(this.form.value));
+    const post: Post = this.form.value;
+    this.store.dispatch(savePost({post}));
   }
 
   cancel() {
     this.store.dispatch(postCancelled());
   }
 
+  delete(id: string) {
+    this.store.dispatch(deletePost({id}));
+  }
 }

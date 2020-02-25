@@ -62,4 +62,13 @@ export class BlogService {
       subscriber.complete();
     });
   }
+
+  delete(id: string): Observable<string> {
+    return new Observable(subscriber => {
+      const index = this.data.findIndex(item => item.id === id);
+      this.data.splice(index, 1);
+      subscriber.next(id);
+      subscriber.complete();
+    });
+  }
 }
