@@ -26,12 +26,18 @@ export class TodoListComponent implements OnInit {
     this.todos$ = this.store.pipe(select(featureName));
   }
 
-  listPending() {
-    return this.todos$.pipe(map(todos => todos.items.filter(item => !item.done)));
-  }
+  list() {
+    return this.todos$.pipe(map(todos => todos.items.sort((a, b) => {
+      if (a.done && !b.done) {
+        return 1;
+      }
 
-  listDone() {
-    return this.todos$.pipe(map(todos => todos.items.filter(item => item.done)));
+      if (!a.done && b.done) {
+        return -1;
+      }
+
+      return 0;
+    })));
   }
 
   add() {

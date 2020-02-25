@@ -26,14 +26,23 @@ export const postLoaded = createAction(
 
 export const savePost = createAction(
   '[Blog] Save Post',
-  props<Post>()
+  props<{post: Post}>()
 );
 
 export const postSaved = createAction(
-  '[Blog] Post Saved',
-  props<Post>()
+  '[Blog] Post Saved'
 );
 
 export const postCancelled = createAction(
   '[Blog] Post Cancelled'
+);
+
+export const deletePost = createAction(
+  '[Blog] Delete Post',
+  props<{id: string}>()
+)
+
+export const postDeleted = createAction(
+  '[Blog] Post Deleted',
+  props<{id: string}>()
 );
